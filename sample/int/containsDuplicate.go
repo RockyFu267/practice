@@ -1,4 +1,4 @@
-package sample
+package int
 
 //存在重复元素
 //给定一个整数数组，判断是否存在重复元素。

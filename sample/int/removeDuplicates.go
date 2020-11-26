@@ -1,4 +1,4 @@
-package sample
+package int
 
 //removeDuplicates 删除有序数组中重复的整数，返回数组长度     时间13%，内存50%
 func removeDuplicates(nums []int) int {
