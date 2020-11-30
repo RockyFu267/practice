@@ -53,3 +53,32 @@ func intersect(nums1 []int, nums2 []int) []int {
 // 如果给定的数组已经排好序呢？你将如何优化你的算法？
 // 如果 nums1 的大小比 nums2 小很多，哪种方法更优？
 // 如果 nums2 的元素存储在磁盘上，内存是有限的，并且你不能一次加载所有的元素到内存中，你该怎么办？
+
+//intersect01  4ms时间90% 3.1mb空间20%
+func intersect01(nums1 []int, nums2 []int) []int {
+	map1 := make(map[int]int)
+	var res []int
+	for k := 0; k < len(nums1); k++ {
+		if _, ok := map1[nums1[k]]; ok {
+			map1[nums1[k]] = map1[nums1[k]] + 1
+		} else {
+			map1[nums1[k]] = 1
+		}
+	}
+
+	for i := 0; i < len(nums2); i++ {
+		if _, ok := map1[nums2[i]]; ok {
+			if map1[nums2[i]] == 0 {
+				continue
+			}
+			if map1[nums2[i]] > 0 {
+				map1[nums2[i]] = map1[nums2[i]] - 1
+				res = append(res, nums2[i])
+			}
+		}
+		continue
+
+	}
+
+	return res
+}
