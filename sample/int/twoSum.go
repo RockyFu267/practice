@@ -25,3 +25,16 @@ func twoSum(nums []int, target int) []int {
 	}
 	return res
 }
+
+//twoSum  4ms 96% 4.3mb 16%
+func twoSum01(nums []int, target int) []int {
+	tmpMap := make(map[int]int)
+	var res []int
+	for sign, value := range nums {
+		if v, ok := tmpMap[target-value]; ok {
+			res = append(res, sign, v)
+		}
+		tmpMap[value] = sign
+	}
+	return res
+}
