@@ -19,7 +19,7 @@ package int
 // 输入：digits = [0]
 // 输出：[1]
 
-//plusOne   这个有点秒啊
+//plusOne   这个有点妙啊
 func plusOne(digits []int) []int {
 	lenNum := len(digits)
 	for k := lenNum - 1; k >= 0; k-- {

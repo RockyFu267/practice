@@ -43,112 +43,112 @@ package int
 // 解释: 除了第一行的第一个数字从 5 改为 8 以外，空格内其他数字均与 示例1 相同。
 //      但由于位于左上角的 3x3 宫内有两个 8 存在, 因此这个数独是无效的。
 
-//isValidSudoku
-func isValidSudoku(board [][]byte) bool {
+// //isValidSudoku
+// func isValidSudoku(board [][]byte) bool {
 
-	// map1r := make(map[byte]bool)
-	// map2r := make(map[byte]bool)
-	// map3r := make(map[byte]bool)
-	// map4r := make(map[byte]bool)
-	// map5r := make(map[byte]bool)
-	// map6r := make(map[byte]bool)
-	// map7r := make(map[byte]bool)
-	// map8r := make(map[byte]bool)
-	// map9r := make(map[byte]bool)
-	// map1c := make(map[byte]bool)
-	// map2c := make(map[byte]bool)
-	// map3c := make(map[byte]bool)
-	// map4c := make(map[byte]bool)
-	// map5c := make(map[byte]bool)
-	// map6c := make(map[byte]bool)
-	// map7c := make(map[byte]bool)
-	// map8c := make(map[byte]bool)
-	// map9c := make(map[byte]bool)
+// 	// map1r := make(map[byte]bool)
+// 	// map2r := make(map[byte]bool)
+// 	// map3r := make(map[byte]bool)
+// 	// map4r := make(map[byte]bool)
+// 	// map5r := make(map[byte]bool)
+// 	// map6r := make(map[byte]bool)
+// 	// map7r := make(map[byte]bool)
+// 	// map8r := make(map[byte]bool)
+// 	// map9r := make(map[byte]bool)
+// 	// map1c := make(map[byte]bool)
+// 	// map2c := make(map[byte]bool)
+// 	// map3c := make(map[byte]bool)
+// 	// map4c := make(map[byte]bool)
+// 	// map5c := make(map[byte]bool)
+// 	// map6c := make(map[byte]bool)
+// 	// map7c := make(map[byte]bool)
+// 	// map8c := make(map[byte]bool)
+// 	// map9c := make(map[byte]bool)
 
-	//1-3r
-	map1 := make(map[byte]bool)
-	for r := 0; r < 3; r++ {
-		for c := 0; c < 3; c++ {
-			if _, ok := map1[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map1[board[r][c]] = true
-		}
-	}
-	map2 := make(map[byte]bool)
-	for r := 0; r < 3; r++ {
-		for c := 3; c < 6; c++ {
-			if _, ok := map2[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map2[board[r][c]] = true
-		}
-	}
-	map3 := make(map[byte]bool)
-	for r := 0; r < 3; r++ {
-		for c := 6; c < 9; c++ {
-			if _, ok := map3[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map3[board[r][c]] = true
-		}
-	}
-	//4-6r
-	map4 := make(map[byte]bool)
-	for r := 3; r < 6; r++ {
-		for c := 0; c < 3; c++ {
-			if _, ok := map4[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map4[board[r][c]] = true
-		}
-	}
-	map5 := make(map[byte]bool)
-	for r := 3; r < 6; r++ {
-		for c := 3; c < 6; c++ {
-			if _, ok := map5[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map5[board[r][c]] = true
-		}
-	}
-	map6 := make(map[byte]bool)
-	for r := 3; r < 6; r++ {
-		for c := 6; c < 9; c++ {
-			if _, ok := map6[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map6[board[r][c]] = true
-		}
-	}
-	//6-9r
-	map7 := make(map[byte]bool)
-	for r := 6; r < 9; r++ {
-		for c := 0; c < 3; c++ {
-			if _, ok := map7[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map7[board[r][c]] = true
-		}
-	}
-	map8 := make(map[byte]bool)
-	for r := 6; r < 9; r++ {
-		for c := 3; c < 6; c++ {
-			if _, ok := map8[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map8[board[r][c]] = true
-		}
-	}
-	map9 := make(map[byte]bool)
-	for r := 6; r < 9; r++ {
-		for c := 6; c < 9; c++ {
-			if _, ok := map9[board[r][c]]; ok && string(board[r][c]) != "." {
-				return false
-			}
-			map9[board[r][c]] = true
-		}
-	}
+// 	//1-3r
+// 	map1 := make(map[byte]bool)
+// 	for r := 0; r < 3; r++ {
+// 		for c := 0; c < 3; c++ {
+// 			if _, ok := map1[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map1[board[r][c]] = true
+// 		}
+// 	}
+// 	map2 := make(map[byte]bool)
+// 	for r := 0; r < 3; r++ {
+// 		for c := 3; c < 6; c++ {
+// 			if _, ok := map2[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map2[board[r][c]] = true
+// 		}
+// 	}
+// 	map3 := make(map[byte]bool)
+// 	for r := 0; r < 3; r++ {
+// 		for c := 6; c < 9; c++ {
+// 			if _, ok := map3[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map3[board[r][c]] = true
+// 		}
+// 	}
+// 	//4-6r
+// 	map4 := make(map[byte]bool)
+// 	for r := 3; r < 6; r++ {
+// 		for c := 0; c < 3; c++ {
+// 			if _, ok := map4[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map4[board[r][c]] = true
+// 		}
+// 	}
+// 	map5 := make(map[byte]bool)
+// 	for r := 3; r < 6; r++ {
+// 		for c := 3; c < 6; c++ {
+// 			if _, ok := map5[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map5[board[r][c]] = true
+// 		}
+// 	}
+// 	map6 := make(map[byte]bool)
+// 	for r := 3; r < 6; r++ {
+// 		for c := 6; c < 9; c++ {
+// 			if _, ok := map6[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map6[board[r][c]] = true
+// 		}
+// 	}
+// 	//6-9r
+// 	map7 := make(map[byte]bool)
+// 	for r := 6; r < 9; r++ {
+// 		for c := 0; c < 3; c++ {
+// 			if _, ok := map7[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map7[board[r][c]] = true
+// 		}
+// 	}
+// 	map8 := make(map[byte]bool)
+// 	for r := 6; r < 9; r++ {
+// 		for c := 3; c < 6; c++ {
+// 			if _, ok := map8[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map8[board[r][c]] = true
+// 		}
+// 	}
+// 	map9 := make(map[byte]bool)
+// 	for r := 6; r < 9; r++ {
+// 		for c := 6; c < 9; c++ {
+// 			if _, ok := map9[board[r][c]]; ok && string(board[r][c]) != "." {
+// 				return false
+// 			}
+// 			map9[board[r][c]] = true
+// 		}
+// 	}
 
-	return true
-}
+// 	return true
+// }
