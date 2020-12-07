@@ -6,7 +6,7 @@ import (
 )
 
 func Test_isPalindrome(t *testing.T) {
-	tmpStr := "OP"
+	tmpStr := "0P"
 
 	res := isPalindrome(tmpStr)
 

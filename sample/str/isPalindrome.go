@@ -16,7 +16,7 @@ import "fmt"
 // 输入: "race a car"
 // 输出: false
 
-//isPalindrome
+//isPalindrome 0ms 100%  3.7mb 36%
 func isPalindrome(s string) bool {
 	if len(s) == 0 {
 		return true
@@ -24,7 +24,7 @@ func isPalindrome(s string) bool {
 	var tmpList = []byte{}
 	for k := range s {
 		tmpstr := s[k]
-		if (tmpstr <= 'z' && tmpstr >= 'a') || (tmpstr <= 'Z' && tmpstr >= 'A') || (tmpstr <= '9' && tmpstr >= '1') {
+		if (tmpstr <= 'z' && tmpstr >= 'a') || (tmpstr <= 'Z' && tmpstr >= 'A') || (tmpstr <= '9' && tmpstr >= '0') {
 			if tmpstr <= 'Z' && tmpstr >= 'A' {
 				tmpstr = tmpstr + 32
 			}
