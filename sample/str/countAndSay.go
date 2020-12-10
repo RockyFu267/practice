@@ -1,5 +1,7 @@
 package str
 
+import "strconv"
+
 // 外观数列
 // 给定一个正整数 n ，输出外观数列的第 n 项。
 
@@ -45,5 +47,40 @@ package str
 
 //countAndSay
 func countAndSay(n int) string {
+	if n == 1 {
+		return "1"
+	}
+	if n == 2 {
+		return "11"
+	}
+	res := "11"
+	for k := 0; k < n-2; k++ {
+		res = readStr(res)
+	}
+	return res
+}
 
+//readStr lenstr >=2
+func readStr(input string) (res string) {
+	var count int
+	count = 1
+	for k := 0; k < len(input); k++ {
+		if k == len(input)-1 {
+			strTMP := string(input[k])
+			countStr := strconv.Itoa(count)
+			res = res + countStr + strTMP
+			return
+		}
+		if input[k] != input[k+1] {
+			strTMP := string(input[k])
+			countStr := strconv.Itoa(count)
+			res = res + countStr + strTMP
+			count = 1
+			continue
+		} else {
+			count = count + 1
+			continue
+		}
+	}
+	return res
 }
