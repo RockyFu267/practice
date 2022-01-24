@@ -38,5 +38,5 @@ func searchInsert(nums []int, target int) int {
 			continue
 		}
 	}
-	return len(nums) + 1
+	return len(nums)
 }
