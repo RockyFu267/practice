@@ -43,6 +43,7 @@
 // 0 <= val <= 100
 package int
 
+//removeElement	 移除元素
 func removeElement(nums []int, val int) int {
 	var res int
 	for i := range nums {
