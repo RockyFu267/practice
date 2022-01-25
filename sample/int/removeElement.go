@@ -44,5 +44,13 @@
 package int
 
 func removeElement(nums []int, val int) int {
-
+	var res int
+	for i := range nums {
+		if nums[i] == val {
+			continue
+		} else {
+			res = res + 1
+		}
+	}
+	return res
 }
