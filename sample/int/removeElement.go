@@ -43,6 +43,8 @@
 // 0 <= val <= 100
 package int
 
+import "fmt"
+
 //removeElement	 移除元素
 func removeElement(nums []int, val int) int {
 	right := len(nums) - 1
@@ -52,12 +54,19 @@ func removeElement(nums []int, val int) int {
 		for nums[right] == val {
 			right = right - 1
 		}
+		if right == 0 {
+			break
+		}
 		//匹配到，完成交换
 		if nums[left] == val {
 			tmpNum = nums[right]
 			nums[right] = nums[left]
 			nums[left] = tmpNum
 		}
+	}
+	fmt.Println(nums)
+	if right == 0 {
+		return 0
 	}
 	return right + 1
 }
