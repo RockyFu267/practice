@@ -59,5 +59,5 @@ func removeElement(nums []int, val int) int {
 			nums[left] = tmpNum
 		}
 	}
-	return right
+	return right + 1
 }
