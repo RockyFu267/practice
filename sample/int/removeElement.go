@@ -51,10 +51,7 @@ func removeElement(nums []int, val int) int {
 	var tmpNum int
 	for left := 0; left < right; left++ {
 		//先判断目前的最后一位是不是等于val,保证右边的不是目标值
-		if right == 0 {
-			break
-		}
-		for nums[right] == val {
+		for nums[right] == val && right > 0 {
 			right = right - 1
 		}
 
