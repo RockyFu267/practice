@@ -5,15 +5,23 @@ import "fmt"
 func main() {
 	fmt.Println("shit")
 	// var nums []int
-	nums := []int{1}
+	nums := []int{1, 1, 1}
 	res := removeElement(nums, 2)
 	fmt.Println(res)
 }
 
 func removeElement(nums []int, val int) int {
+	if len(nums) == 1 {
+		if nums[0] == val {
+			return 0
+		} else {
+			return 2
+		}
+	}
 	right := len(nums) - 1
 	var tmpNum int
-	for left := 0; left < right; left++ {
+	var left int
+	for left = 0; left < right; left++ {
 		//先判断目前的最后一位是不是等于val,保证右边的不是目标值
 		for nums[right] == val && right > 0 {
 			right = right - 1
