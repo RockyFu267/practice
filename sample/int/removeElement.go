@@ -47,6 +47,13 @@ import "fmt"
 
 //removeElement	 移除元素
 func removeElement(nums []int, val int) int {
+	if len(nums) == 1 {
+		if nums[0] == val {
+			return 0
+		} else {
+			return 2
+		}
+	}
 	right := len(nums) - 1
 	var tmpNum int
 	for left := 0; left < right; left++ {
