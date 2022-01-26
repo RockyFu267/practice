@@ -5,8 +5,8 @@ import "fmt"
 func main() {
 	fmt.Println("shit")
 	// var nums []int
-	nums := []int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 5}
-	res := removeElement(nums, 5)
+	nums := []int{0, 1, 2, 2, 3, 0, 4, 2}
+	res := removeElement(nums, 2)
 	fmt.Println(res)
 }
 
@@ -26,5 +26,5 @@ func removeElement(nums []int, val int) int {
 		}
 	}
 	fmt.Println(nums)
-	return right
+	return right + 1
 }
