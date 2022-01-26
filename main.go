@@ -5,38 +5,23 @@ import "fmt"
 func main() {
 	fmt.Println("shit")
 	// var nums []int
-	nums := []int{1, 1, 1}
+	nums := []int{3, 2, 3, 2, 2, 2}
 	res := removeElement(nums, 2)
 	fmt.Println(res)
 }
 
 func removeElement(nums []int, val int) int {
-	if len(nums) == 1 {
-		if nums[0] == val {
-			return 0
-		} else {
-			return 2
-		}
-	}
-	right := len(nums) - 1
-	var tmpNum int
-	var left int
-	for left = 0; left < right; left++ {
-		//先判断目前的最后一位是不是等于val,保证右边的不是目标值
-		for nums[right] == val && right > 0 {
-			right = right - 1
-		}
-
-		//匹配到，完成交换
+	right := len(nums)
+	left := 0
+	for left < right {
 		if nums[left] == val {
-			tmpNum = nums[right]
-			nums[right] = nums[left]
-			nums[left] = tmpNum
+			nums[left] = nums[right-1]
+			right = right - 1
+		} else {
+			left = left + 1
 		}
+		fmt.Println(nums)
 	}
 	fmt.Println(nums)
-	if right == 0 {
-		return 0
-	}
-	return right + 1
+	return left
 }
