@@ -18,6 +18,9 @@ func removeElement(nums []int, val int) int {
 		for nums[right] == val {
 			right = right - 1
 		}
+		if right == 0 {
+			break
+		}
 		//匹配到，完成交换
 		if nums[left] == val {
 			tmpNum = nums[right]
@@ -26,5 +29,8 @@ func removeElement(nums []int, val int) int {
 		}
 	}
 	fmt.Println(nums)
+	if right == 0 {
+		return 0
+	}
 	return right + 1
 }
