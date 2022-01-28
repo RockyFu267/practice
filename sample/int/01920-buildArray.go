@@ -30,17 +30,11 @@
 
 package int
 
-import "fmt"
-
 //buildArray 基于排列构建数组
 func buildArray(nums []int) []int {
-	var tmp int
 	numsCopy := []int{}
 	for i := 0; i < len(nums); i++ {
-		tmp = nums[i]
-		numsCopy = append(numsCopy, nums[tmp])
-		fmt.Println(tmp, nums[tmp], numsCopy[i])
+		numsCopy = append(numsCopy, nums[nums[i]])
 	}
-	fmt.Println(nums)
 	return numsCopy
 }
