@@ -32,10 +32,9 @@ package int
 
 //buildArray 基于排列构建数组
 func buildArray(nums []int) []int {
-	var tmp int
+	numsCopy := nums
 	for i := 0; i < len(nums); i++ {
-		tmp = nums[i]
-		nums[i] = nums[tmp]
+		numsCopy[i] = nums[i]
 	}
-	return nums
+	return numsCopy
 }
