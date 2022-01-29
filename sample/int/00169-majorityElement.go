@@ -31,7 +31,7 @@ func majorityElement(nums []int) int {
 		} else {
 			resMap[nums[i]] = 1
 		}
-		if v > resLen {
+		if resMap[nums[i]] > resLen {
 			return nums[i]
 		}
 	}
