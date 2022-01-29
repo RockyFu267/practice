@@ -20,6 +20,20 @@
 
 package int
 
+//majorityElement 多数元素
 func majorityElement(nums []int) int {
+	resMap := map[int]int{}
+	resLen := len(nums) / 2
+	for i := range nums {
+		v, ok := resMap[nums[i]]
+		if ok {
+			resMap[nums[i]] = v + 1
+		} else {
+			resMap[nums[i]] = 1
+		}
+		if v > resLen {
+			return nums[i]
+		}
+	}
 	return 0
 }
