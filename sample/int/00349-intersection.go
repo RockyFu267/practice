@@ -21,5 +21,26 @@ package int
 
 //intersection 两个数的交集
 func intersection(nums1 []int, nums2 []int) []int {
-	return nums1
+	num1Map := map[int]bool{}
+	num2Map := map[int]bool{}
+	resNum := []int{}
+	for i := range nums1 {
+		ok := num1Map[nums1[i]]
+		if ok {
+			num1Map[nums1[i]] = true
+		}
+	}
+	for i := range nums2 {
+		ok := num2Map[nums2[i]]
+		if ok {
+			num2Map[nums2[i]] = true
+		}
+	}
+	for v := range nums1 {
+		ok := num2Map[v]
+		if ok {
+			resNum = append(resNum, v)
+		}
+	}
+	return resNum
 }
