@@ -19,6 +19,8 @@
 // 0 <= nums1[i], nums2[i] <= 1000
 package int
 
+import "sort"
+
 //intersection 两个数的交集
 func intersection(nums1 []int, nums2 []int) []int {
 	num1Map := map[int]bool{}
@@ -41,6 +43,33 @@ func intersection(nums1 []int, nums2 []int) []int {
 		if ok {
 			resNum = append(resNum, v)
 		}
+	}
+	return resNum
+}
+
+//intersection01 两个数的交集 双指针，内存更小
+func intersection01(nums1 []int, nums2 []int) []int {
+	sort.Ints(nums1)
+	sort.Ints(nums2)
+	nums1Point, nums2Point := 0, 0
+	resNum := []int{}
+	for nums1Point < len(nums1) && nums2Point < len(nums2) {
+		if nums1[nums1Point] < nums2[nums2Point] {
+			nums1Point = nums1Point + 1
+			continue
+		}
+		if nums1[nums1Point] > nums2[nums2Point] {
+			nums2Point = nums2Point + 1
+			continue
+		}
+		if len(resNum) == 0 {
+			resNum = append(resNum, nums1[nums1Point])
+		}
+		if len(resNum) > 0 && resNum[len(resNum)-1] != nums1[nums1Point] {
+			resNum = append(resNum, nums1[nums1Point])
+		}
+		nums1Point = nums1Point + 1
+		nums2Point = nums2Point + 1
 	}
 	return resNum
 }
