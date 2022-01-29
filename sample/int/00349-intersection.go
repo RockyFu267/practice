@@ -26,17 +26,17 @@ func intersection(nums1 []int, nums2 []int) []int {
 	resNum := []int{}
 	for i := range nums1 {
 		ok := num1Map[nums1[i]]
-		if ok {
+		if !ok {
 			num1Map[nums1[i]] = true
 		}
 	}
 	for i := range nums2 {
 		ok := num2Map[nums2[i]]
-		if ok {
+		if !ok {
 			num2Map[nums2[i]] = true
 		}
 	}
-	for v := range nums1 {
+	for v := range num1Map {
 		ok := num2Map[v]
 		if ok {
 			resNum = append(resNum, v)
