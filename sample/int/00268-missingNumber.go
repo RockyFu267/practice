@@ -37,5 +37,15 @@
 package int
 
 func missingNumber(nums []int) int {
+	numsMap := map[int]bool{}
+	for i := 0; i < len(nums); i++ {
+		numsMap[nums[i]] = true
+	}
+	for i := 0; i <= len(nums); i++ {
+		ok := numsMap[i]
+		if !ok {
+			return i
+		}
+	}
 	return 0
 }
