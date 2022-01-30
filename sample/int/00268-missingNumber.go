@@ -36,6 +36,7 @@
 
 package int
 
+//missingNumber 丢失的数字
 func missingNumber(nums []int) int {
 	numsMap := map[int]bool{}
 	for i := 0; i < len(nums); i++ {
