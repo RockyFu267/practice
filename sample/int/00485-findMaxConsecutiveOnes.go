@@ -21,5 +21,17 @@ package int
 
 //findMaxConsecutiveOnes 最大连续1的个数
 func findMaxConsecutiveOnes(nums []int) int {
+	maxValue := 0
+	cValue := 0
+	for i := 0; i < len(nums); i++ {
+		if nums[i] == 1 {
+			cValue = cValue + 1
+			if maxValue < cValue {
+				maxValue = cValue
+			}
+			continue
+		}
+		cValue = 0
+	}
 	return 0
 }
