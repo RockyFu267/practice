@@ -33,5 +33,5 @@ func findMaxConsecutiveOnes(nums []int) int {
 		}
 		cValue = 0
 	}
-	return 0
+	return maxValue
 }
