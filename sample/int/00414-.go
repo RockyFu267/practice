@@ -28,6 +28,20 @@
 package int
 
 func thirdMax(nums []int) int {
+	//maxList := []int{}
+
 	return 0
 
+}
+
+//先写一个快速排序
+
+//quickSort 快速排序
+func quickSort(nums []int, left int, right int) []int {
+	return nums
+}
+
+//quickPartition 方法
+func quickPartition(nums []int, left int, right int) []int {
+	return nums
 }
