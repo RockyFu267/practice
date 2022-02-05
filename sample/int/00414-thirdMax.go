@@ -27,6 +27,8 @@
 
 package int
 
+import "fmt"
+
 func thirdMax(nums []int) int {
 	//maxList := []int{}
 
@@ -40,10 +42,12 @@ func thirdMax(nums []int) int {
 func quickSort(nums []int, left int, right int) {
 	if left < right {
 		mid := quickPartition(nums, left, right)
+		fmt.Println("111,", nums)
 		quickSort(nums, left, mid-1)
+		fmt.Println("222,", nums)
 		quickSort(nums, mid+1, right)
+		fmt.Println("333,", nums)
 	}
-	return
 }
 
 //quickPartition 方法
@@ -60,7 +64,7 @@ func quickPartition(nums []int, left int, right int) int {
 		for left < right && nums[left] <= tmpData {
 			left = left + 1
 		}
-		nums[left] = nums[right]
+		nums[right] = nums[left]
 	}
 	nums[left] = tmpData
 	return left
