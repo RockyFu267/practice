@@ -30,10 +30,23 @@ package int
 import "fmt"
 
 func thirdMax(nums []int) int {
-	//maxList := []int{}
-
-	return 0
-
+	max3 := []int{}
+	quickSort(nums, 0, len(nums)-1)
+	fmt.Println(nums)
+	//max3 = append(max3, nums[len(nums)-1])
+	tmpMax := nums[len(nums)-1]
+	max3 = append(max3, tmpMax)
+	for i := len(nums) - 1; i >= 0; i-- {
+		if nums[i] != tmpMax {
+			max3 = append(max3, nums[i])
+			tmpMax = nums[i]
+		}
+		fmt.Println("debug", max3)
+		if len(max3) == 3 {
+			return max3[2]
+		}
+	}
+	return max3[0]
 }
 
 //先写一个快速排序
@@ -69,17 +82,3 @@ func quickPartition(nums []int, left int, right int) int {
 	nums[left] = tmpData
 	return left
 }
-
-// tmpData = setList[left]
-// while left < right:
-// 	while left < right and setList[right] >= tmpData:  #从右向左找出比tmpdata小的值
-// 		right = right - 1
-// 	setList[left] = setList[right]
-// 	print(setList)
-// 	while left < right and setList[left] <= tmpData:   #从左向右找出比tmpdata大的值
-// 		left = left + 1
-// 	setList[right] = setList[left]
-// 	print(setList)
-// setList[left] = tmpData
-// print(setList)
-// return left
