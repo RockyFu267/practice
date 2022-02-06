@@ -27,12 +27,9 @@
 
 package int
 
-import "fmt"
-
 func thirdMax(nums []int) int {
 	max3 := []int{}
 	quickSort(nums, 0, len(nums)-1)
-	fmt.Println(nums)
 	//max3 = append(max3, nums[len(nums)-1])
 	tmpMax := nums[len(nums)-1]
 	max3 = append(max3, tmpMax)
@@ -41,7 +38,6 @@ func thirdMax(nums []int) int {
 			max3 = append(max3, nums[i])
 			tmpMax = nums[i]
 		}
-		fmt.Println("debug", max3)
 		if len(max3) == 3 {
 			return max3[2]
 		}
@@ -55,11 +51,8 @@ func thirdMax(nums []int) int {
 func quickSort(nums []int, left int, right int) {
 	if left < right {
 		mid := quickPartition(nums, left, right)
-		fmt.Println("111,", nums)
 		quickSort(nums, left, mid-1)
-		fmt.Println("222,", nums)
 		quickSort(nums, mid+1, right)
-		fmt.Println("333,", nums)
 	}
 }
 
