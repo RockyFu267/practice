@@ -41,6 +41,7 @@ func merge(nums1 []int, m int, nums2 []int, n int) {
 	left, right := 0, 0
 	for {
 		if left == m {
+			//直接添加到尾部
 			copyList = append(copyList, nums2[right:]...)
 			break
 		}
