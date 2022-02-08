@@ -37,5 +37,25 @@
 package int
 
 func merge(nums1 []int, m int, nums2 []int, n int) {
-	return
+	copyList := []int{}
+	left, right := 0, 0
+	for {
+		if left == m {
+			//直接添加到尾部
+			copyList = append(copyList, nums2[right:]...)
+			break
+		}
+		if right == n {
+			copyList = append(copyList, nums1[left:]...)
+			break
+		}
+		if nums1[left] < nums2[right] {
+			copyList = append(copyList, nums1[left])
+			left = left + 1
+		} else {
+			copyList = append(copyList, nums2[right])
+			right = right + 1
+		}
+	}
+	copy(nums1, copyList)
 }
