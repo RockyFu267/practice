@@ -32,8 +32,8 @@ func maxProfit01(prices []int) int {
 	for i := 1; i < len(prices); i++ {
 		if prices[i]-prices[i-1] > 0 {
 			prices[i] = prices[i] - prices[i-1]
+			maxNum = prices[i] + maxNum
 		}
-		maxNum = prices[i]
 	}
 	return maxNum
 }
