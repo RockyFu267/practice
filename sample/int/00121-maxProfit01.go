@@ -29,10 +29,11 @@ package int
 //maxProfit 买卖股票最佳时机，单笔交易，获取最大利润
 func maxProfit01(prices []int) int {
 	maxNum := 0
-	for i := 1; i < len(prices); i++ {
-		if prices[i]-prices[i-1] > 0 {
-			prices[i] = prices[i] - prices[i-1]
-			maxNum = prices[i] + maxNum
+	for i := 0; i < len(prices)-1; i++ {
+		for j := i + 1; j < len(prices); j++ {
+			if prices[j] > prices[i] && prices[j]-prices[i] > maxNum {
+				maxNum = prices[j] - prices[i]
+			}
 		}
 	}
 	return maxNum
