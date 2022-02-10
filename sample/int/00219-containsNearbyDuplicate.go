@@ -24,7 +24,24 @@
 // -109 <= nums[i] <= 109
 // 0 <= k <= 105
 
+package int
+
+import "fmt"
+
 //containsNearbyDuplicate 存在重复元素 II
 func containsNearbyDuplicate(nums []int, k int) bool {
+	for i := 0; i < len(nums); i++ {
+		for j := i + 1; j < i+k; j++ {
+			fmt.Println(i, j)
+			// fmt.Println(nums[i], nums[j])
+			if j >= len(nums) {
+				break
+			}
+			if nums[i] == nums[j] {
+				return true
+			}
+		}
+	}
+	return false
 
 }
