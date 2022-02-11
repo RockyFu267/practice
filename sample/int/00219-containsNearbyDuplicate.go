@@ -31,10 +31,10 @@ import "fmt"
 //containsNearbyDuplicate 存在重复元素 II
 func containsNearbyDuplicate(nums []int, k int) bool {
 	for i := 0; i < len(nums); i++ {
-		for j := i + 1; j < i+k; j++ {
+		for j := i + 1; j < i+k+1; j++ {
 			fmt.Println(i, j)
 			// fmt.Println(nums[i], nums[j])
-			if j >= len(nums) {
+			if j > len(nums)-1 {
 				break
 			}
 			if nums[i] == nums[j] {
