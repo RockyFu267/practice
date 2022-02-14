@@ -152,3 +152,26 @@ package int
 
 // 	return true
 // }
+
+func isValidSudoku(board [][]byte) bool {
+	//row
+	tmpRow := map[byte]bool{}
+	for i := 0; i < 9; i++ {
+		for j := 0; j < 9; j++ {
+			if _, ok := tmpRow[board[i][j]]; ok && string(board[i][j]) != "." {
+				return false
+			}
+			tmpRow[board[i][j]] = true
+		}
+	}
+	//column
+	for i := 0; i < 9; i++ {
+		for j := 0; j < 9; j++ {
+			if _, ok := tmpRow[board[j][i]]; ok && string(board[j][i]) != "." {
+				return false
+			}
+			tmpRow[board[j][i]] = true
+		}
+	}
+	return true
+}
