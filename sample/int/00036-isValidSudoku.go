@@ -157,8 +157,8 @@ import "fmt"
 
 func isValidSudoku(board [][]byte) bool {
 	//row
-	tmpRow := map[byte]bool{}
 	for i := 0; i < 9; i++ {
+		tmpRow := map[byte]bool{}
 		for j := 0; j < 9; j++ {
 			fmt.Println(i, j)
 			if _, ok := tmpRow[board[i][j]]; ok && string(board[i][j]) != "." {
@@ -169,6 +169,7 @@ func isValidSudoku(board [][]byte) bool {
 	}
 	//column
 	for i := 0; i < 9; i++ {
+		tmpRow := map[byte]bool{}
 		for j := 0; j < 9; j++ {
 			fmt.Println(i, j)
 			if _, ok := tmpRow[board[j][i]]; ok && string(board[j][i]) != "." {
