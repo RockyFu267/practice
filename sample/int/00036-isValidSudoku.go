@@ -1,7 +1,5 @@
 package int
 
-import "fmt"
-
 // 判断一个 9x9 的数独是否有效。只需要根据以下规则，验证已经填入的数字是否有效即可。
 
 // 数字 1-9 在每一行只能出现一次。
@@ -160,7 +158,7 @@ func isValidSudoku(board [][]byte) bool {
 	for i := 0; i < 9; i++ {
 		tmpRow := map[byte]bool{}
 		for j := 0; j < 9; j++ {
-			fmt.Println(i, j)
+			// fmt.Println(i, j)
 			if _, ok := tmpRow[board[i][j]]; ok && string(board[i][j]) != "." {
 				return false
 			}
@@ -171,11 +169,17 @@ func isValidSudoku(board [][]byte) bool {
 	for i := 0; i < 9; i++ {
 		tmpRow := map[byte]bool{}
 		for j := 0; j < 9; j++ {
-			fmt.Println(i, j)
+			// fmt.Println(i, j)
 			if _, ok := tmpRow[board[j][i]]; ok && string(board[j][i]) != "." {
 				return false
 			}
 			tmpRow[board[j][i]] = true
+		}
+	}
+	//matrix
+	for i := 1; i < 4; i++ {
+		for j := 1; j < 4; j++ {
+			
 		}
 	}
 	return true
