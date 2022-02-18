@@ -152,3 +152,35 @@ package int
 
 // 	return true
 // }
+
+func isValidSudoku(board [][]byte) bool {
+	//row
+	for i := 0; i < 9; i++ {
+		tmpRow := map[byte]bool{}
+		for j := 0; j < 9; j++ {
+			// fmt.Println(i, j)
+			if _, ok := tmpRow[board[i][j]]; ok && string(board[i][j]) != "." {
+				return false
+			}
+			tmpRow[board[i][j]] = true
+		}
+	}
+	//column
+	for i := 0; i < 9; i++ {
+		tmpRow := map[byte]bool{}
+		for j := 0; j < 9; j++ {
+			// fmt.Println(i, j)
+			if _, ok := tmpRow[board[j][i]]; ok && string(board[j][i]) != "." {
+				return false
+			}
+			tmpRow[board[j][i]] = true
+		}
+	}
+	//matrix
+	for i := 1; i < 4; i++ {
+		for j := 1; j < 4; j++ {
+			
+		}
+	}
+	return true
+}
