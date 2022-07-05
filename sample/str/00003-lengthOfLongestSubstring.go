@@ -1,7 +1,5 @@
 package str
 
-import "fmt"
-
 // 给定一个字符串 s ，请你找出其中不含有重复字符的 最长子串 的长度。
 
 //
@@ -29,40 +27,29 @@ import "fmt"
 // 0 <= s.length <= 5 * 104
 // s 由英文字母、数字、符号和空格组成
 
-//lengthOfLongestSubstring  无重复字符的最长子串
+//lengthOfLongestSubstring  无重复字符的最长子串  使用滑动模块
 func lengthOfLongestSubstring(s string) int {
 	lenNumber := len(s)
-	leftPoint := 0
-	rightPoint := 0
+	//右指针从-1开始
+	rightPoint := -1
 	Max := 0
 	len := 0
 	var StrMap = make(map[byte]bool)
+	//i充当左指针
 	for i := 0; i < lenNumber; i++ {
-		// fmt.Println("i: ", i)
-		// fmt.Println(string(s[rightPoint]))
-		fmt.Println(leftPoint, " && ", rightPoint)
-		// fmt.Println(StrMap)
-		// fmt.Println("Max: ", Max)
-		// fmt.Println("len ", len)
-		if StrMap[s[rightPoint]] {
-			if len >= Max {
-				Max = len
-				len = 1
-			}
-			var StrMapTmp = make(map[byte]bool)
-			StrMap = StrMapTmp
-			StrMap[s[rightPoint]] = true
-			leftPoint = rightPoint
+		//左指针右移一位，在map中删除左指针所对应的index
+		if i != 0 {
+			delete(StrMap, s[i-1])
+		}
+		//右指针从左指针开始遍历获取当前最长不重复长度  因为上面的步骤当前左指针的index并不存在
+		for rightPoint+1 < lenNumber && !StrMap[s[rightPoint+1]] {
+			StrMap[s[rightPoint+1]] = true
 			rightPoint = rightPoint + 1
-		} else {
-			StrMap[s[rightPoint]] = true
-			rightPoint = rightPoint + 1
-			len = len + 1
-			if i+1 == lenNumber {
-				if len >= Max {
-					return len
-				}
-			}
+		}
+		//右指针-左指针+1 获取当前长度
+		len = rightPoint - i + 1
+		if len >= Max {
+			Max = len
 		}
 	}
 
