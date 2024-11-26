@@ -44,33 +44,59 @@ package int
 //      但由于位于左上角的 3x3 宫内有两个 8 存在, 因此这个数独是无效的。
 
 func isValidSudoku(board [][]byte) bool {
-	//row
-	for i := 0; i < 9; i++ {
-		tmpRow := map[byte]bool{}
-		for j := 0; j < 9; j++ {
-			// fmt.Println(i, j)
-			if _, ok := tmpRow[board[i][j]]; ok && string(board[i][j]) != "." {
-				return false
-			}
-			tmpRow[board[i][j]] = true
-		}
-	}
-	//column
-	for i := 0; i < 9; i++ {
-		tmpRow := map[byte]bool{}
-		for j := 0; j < 9; j++ {
-			// fmt.Println(i, j)
-			if _, ok := tmpRow[board[j][i]]; ok && string(board[j][i]) != "." {
-				return false
-			}
-			tmpRow[board[j][i]] = true
-		}
-	}
-	//matrix
-	for i := 1; i < 4; i++ {
-		for j := 1; j < 4; j++ {
 
+	var rows, columns [9][9]int
+	var subboxes [3][3][9]int
+	for i, row := range board {
+		for j, c := range row {
+			if c == '.' {
+				continue
+			}
+			index := c - '1'
+			rows[i][index]++
+			columns[j][index]++
+			subboxes[i/3][j/3][index]++
+			if rows[i][index] > 1 || columns[j][index] > 1 || subboxes[i/3][j/3][index] > 1 {
+				return false
+			}
 		}
 	}
 	return true
+
+	// //行
+	// for i := 0; i < 9; i++ {
+	// 	tmpR := make(map[byte]bool)
+	// 	for j := 0; j < 9; j++ {
+	// 		if string(board[i][j]) == "." {
+	// 			continue
+	// 		}
+	// 		if tmpR[board[i][j]] {
+	// 			return false
+	// 		}
+	// 		tmpR[board[i][j]] = true
+	// 	}
+	// }
+
+	// //列
+	// for i := 0; i < 9; i++ {
+	// 	tmpC := make(map[byte]bool)
+	// 	for j := 0; j < 9; j++ {
+	// 		if string(board[j][i]) == "." {
+	// 			continue
+	// 		}
+	// 		if tmpC[board[j][i]] {
+	// 			return false
+	// 		}
+	// 		tmpC[board[j][i]] = true
+	// 	}
+	// }
+
+	// //块
+	// for i := 0; i < 9; i++ {
+	// 	for j := 0; j < 9; j++ {
+
+	// 	}
+	// }
+
+	// return true
 }
