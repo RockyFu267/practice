@@ -23,6 +23,7 @@ package dynamicprogramming
 // 0 <= n <= 37
 // 答案保证是一个 32 位整数，即 answer <= 2^31 - 1。
 
+// tribonacci 泰波那契序列
 func tribonacci(n int) int {
 	if n == 0 {
 		return 0
