@@ -16,7 +16,7 @@ import "fmt"
 // 输入: "race a car"
 // 输出: false
 
-//isPalindrome 0ms 100%  3.7mb 36%
+// isPalindrome 0ms 100%  3.7mb 36%
 func isPalindrome(s string) bool {
 	if len(s) == 0 {
 		return true
@@ -45,3 +45,33 @@ func isPalindrome(s string) bool {
 	}
 	return true
 }
+
+// func isPalindrome(s string) bool {
+//     s = strings.ToLower(s)
+
+// 	Lift := 0
+// 	Right := len(s)-1
+// 	if len(s) == 1 {
+// 		return true
+// 	}
+// 	for Lift < Right {
+//         for Lift < Right && !isalnum(s[Lift]) {
+//             Lift++
+//         }
+//         for Lift < Right && !isalnum(s[Right]) {
+//             Right--
+//         }
+
+// 		if s[Lift] == s[Right] {
+// 			Lift++
+// 			Right--
+// 		} else {
+// 			return false
+// 		}
+// 	}
+//     return true
+// }
+
+// func isalnum(ch byte) bool {
+//     return (ch >= 'A' && ch <= 'Z') || (ch >= 'a' && ch <= 'z') || (ch >= '0' && ch <= '9')
+// }
