@@ -43,9 +43,7 @@
 // 0 <= val <= 100
 package int
 
-import "fmt"
-
-//removeElement	 移除元素
+// removeElement	 移除元素
 func removeElement(nums []int, val int) int {
 	right := len(nums)
 	left := 0
@@ -58,6 +56,5 @@ func removeElement(nums []int, val int) int {
 			left = left + 1
 		}
 	}
-	fmt.Println(nums)
 	return left
 }
