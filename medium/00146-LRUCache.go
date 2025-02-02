@@ -26,3 +26,66 @@ package medium
 // lRUCache.get(1);    // 返回 -1 (未找到)
 // lRUCache.get(3);    // 返回 3
 // lRUCache.get(4);    // 返回 4
+type LinkNode struct {
+	key  int
+	val  int
+	pre  *LinkNode
+	next *LinkNode
+}
+
+type LRUCache struct {
+	m        map[int]*LinkNode
+	capacity int
+	head     *LinkNode
+	tail     *LinkNode
+}
+
+func Constructor(capacity int) LRUCache {
+	head := &LinkNode{-1, -1, nil, nil}
+	tail := &LinkNode{-1, -1, nil, nil}
+	head.next = tail
+	tail.pre = head
+	cache := LRUCache{make(map[int]*LinkNode), capacity, head, tail}
+	return cache
+}
+
+func (this *LRUCache) addNode(node *LinkNode) {
+	node.pre = this.head
+	node.next = this.head.next
+	this.head.next.pre = node
+	this.head.next = node
+}
+
+func (this *LRUCache) deleteNode(node *LinkNode) {
+	node.pre.next = node.next
+	node.next.pre = node.pre
+}
+
+func (this *LRUCache) moveToHead(node *LinkNode) {
+	this.deleteNode(node)
+	this.addNode(node)
+}
+
+func (this *LRUCache) Get(key int) int {
+	if node, ok := this.m[key]; ok {
+		this.moveToHead(node)
+		return node.val
+	} else {
+		return -1
+	}
+}
+
+func (this *LRUCache) Put(key int, value int) {
+	if node, ok := this.m[key]; ok {
+		node.val = value
+		this.moveToHead(node)
+	} else {
+		newNode := &LinkNode{key, value, nil, nil}
+		if len(this.m) >= this.capacity {
+			delete(this.m, this.tail.pre.key)
+			this.deleteNode(this.tail.pre)
+		}
+		this.m[key] = newNode
+		this.addNode(newNode)
+	}
+}
